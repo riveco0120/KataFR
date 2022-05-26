@@ -4,8 +4,10 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import util.DataUtil;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /*
     Goal: Create a datastructure from the given data:
@@ -57,14 +59,22 @@ import java.util.Map;
     Output: the given datastructure
 */
 public class Kata11 {
-    public static List<Map> execute() {
+    public static List<ImmutableMap> execute() {
         List<Map> lists = DataUtil.getLists();
         List<Map> videos = DataUtil.getVideos();
         List<Map> boxArts = DataUtil.getBoxArts();
         List<Map> bookmarkList = DataUtil.getBookmarkList();
 
-        return ImmutableList.of(ImmutableMap.of("name", "someName", "videos", ImmutableList.of(
-                ImmutableMap.of("id", 5, "title", "The Chamber", "time", 123, "boxart", "someUrl")
-        )));
+        List<ImmutableMap> listSolucion =
+                lists.stream().map(itemlist -> ImmutableMap.of("name", itemlist.get("name"), "videos",
+                                videos.stream().filter(video -> video.get("listId").equals(itemlist.get("id")))
+                                .map(itemvideo -> ImmutableMap.of("id", itemvideo.get("id"), "title", itemvideo.get("title"),"time",bookmarkList.stream().filter(list -> list.get("videoId").equals(itemvideo.get("id")))
+                                        .map(itemtbook -> itemtbook.get("time")).findAny().get(),
+                                        "boxart", boxArts.stream().filter(itemboxarts -> itemboxarts.get("videoId").equals(itemvideo.get("id")))
+                                        .reduce((item1, item2) -> Integer.parseInt(item1.get("width").toString()) < Integer.parseInt( item2.get("width").toString()) ? item1 : item2)
+                                        .map(item -> item.get("url")))).collect(Collectors.toList())))
+                        .collect(Collectors.toList());
+        
+        return listSolucion;
     }
 }
