@@ -28,10 +28,12 @@ public class Kata7 {
                                         return caratura1;
                                     }
                                     return caratura2;
-                        })))
+                        }).map(item3->item3.getUrl()).get()))
                 .collect(Collectors.toList());
 
         return nuevaList;
     }
+
+
 
 }

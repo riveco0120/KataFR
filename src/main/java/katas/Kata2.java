@@ -24,4 +24,5 @@ public class Kata2 {
         return clasificacion;
     }
 
+
 }

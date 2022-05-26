@@ -24,4 +24,5 @@ public class Kata4 {
                .collect(Collectors.toList());
         return nuevaList;
     }
+
 }
