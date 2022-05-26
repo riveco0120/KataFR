@@ -34,8 +34,4 @@ public class Kata7 {
         return nuevaList;
     }
 
-    public static void main(String[] args) {
-        List<Map> list = Kata7.execute();
-        System.out.println(list.size());
-    }
 }

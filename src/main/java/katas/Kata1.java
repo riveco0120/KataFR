@@ -18,14 +18,11 @@ import java.util.stream.Collectors;
 */
 public class Kata1 {
 
-    public static List<Map<Integer,String>> execute() {
+    public static List<ImmutableMap> execute() {
         List<Movie> movies = DataUtil.getMovies();
-       List<Map<Integer,String>> nuevaList = movies.stream().map((item)->ImmutableMap.of(item.getId(),item.getTitle()))
+       List<ImmutableMap> nuevaList = movies.stream().map((item)->ImmutableMap.of("id",item.getId(),"title",item.getTitle()))
                .collect(Collectors.toList());
         return nuevaList;
     }
 
-    public static void main(String[] args) {
-        System.out.println(Kata1.execute());
-    }
 }

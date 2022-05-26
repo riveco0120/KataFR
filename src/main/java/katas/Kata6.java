@@ -31,7 +31,4 @@ public class Kata6 {
         return valor;
     }
 
-    public static void main(String[] args) {
-
-    }
 }
