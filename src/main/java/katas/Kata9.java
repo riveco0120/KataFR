@@ -33,7 +33,4 @@ public class Kata9 {
         return nuevaList;
     }
 
-    public static void main(String[] args) {
-        System.out.println(Kata9.execute());
-    }
 }
