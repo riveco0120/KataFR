@@ -3,6 +3,7 @@
 import com.google.common.collect.ImmutableList;
 import katas.Kata1;
 import katas.Kata2;
+import katas.Kata3;
 
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,8 @@ public class Test {
         List<Map<Integer,String>> list = Kata1.execute();
       //  test.proyectar(list);
         List<ImmutableList<Integer>>list2 = Kata2.execute();
-        test.mostrarPorClasificacion(list2);
+        //test.mostrarPorClasificacion(list2);
+        List<ImmutableList<Integer>>lists3 = Kata3.execute();
+        test.mostrarPorClasificacion(lists3);
     }
 }
