@@ -15,6 +15,11 @@ public class Movie {
     public Movie() {
     }
 
+    public Movie(Integer id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     public Movie(Integer id, String title, List<BoxArt> boxarts, String uri, Double rating, List<Bookmark> bookmark, List<InterestingMoment> interestingMoments) {
         this.id = id;
         this.title = title;
@@ -79,5 +84,13 @@ public class Movie {
 
     public void setInterestingMoments(List<InterestingMoment> interestingMoments) {
         this.interestingMoments = interestingMoments;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

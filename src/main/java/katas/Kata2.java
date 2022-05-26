@@ -19,4 +19,8 @@ public class Kata2 {
 
         return ImmutableList.of(1, 2, 3);
     }
+
+    public void filtrar(ImmutableList list){
+
+    }
 }
